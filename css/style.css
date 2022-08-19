@@ -1,0 +1,1460 @@
+/* CSS Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;900&display=swap');
+
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+  scroll-behavior: smooth;
+  	/* Note: Skeleton was based off a 10px font sizing for REM  */
+	/* 62.5% of typical 16px browser default = 10px */
+	--base-font-size: 62.5%;
+	
+	/* Grid Defaults - default to match orig skeleton settings */
+	--grid-max-width: 960px;
+}
+body {
+  font-size: 1.6rem;		/* changed from 15px in orig skeleton */
+  line-height: 1.2;
+  font-weight: 400;
+  background-color: black;
+}
+
+
+/* Box Model Hack 
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300; }
+h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 600px) {
+  h1 { font-size: 5.0rem; }
+  h2 { font-size: 4.2rem; }
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+
+p {
+  margin-top: 0; }
+
+
+nav {
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  font-size: 22px;
+}
+
+
+
+/* Header and Navigation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+li, a {
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight:500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10%;
+}
+
+.logo {
+  cursor: pointer;
+  width:90px;
+}
+
+.nav_links {
+  list-style:none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size:.9rem;
+}
+
+.nav_links li a:hover {
+  color: #1496bc;
+}
+
+.nav_social {
+  list-style:none;
+}
+
+.nav_social li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_social li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_social li a:hover {
+  color: #1496bc;
+}
+
+.nav_social img {
+  width: 15px;
+  margin: 0px 2px;
+  opacity: 1;
+}
+
+.nav_social img:hover {
+  opacity: 0.5;
+}
+
+.social_icons {
+  width:100%;
+  text-align:center;
+  margin-top:30px;
+}
+
+.social_icons li {
+  display: inline-block;
+}
+
+.social_icons img {
+  width: 30px;
+  margin:0 10px;
+}
+
+.social_icons img:hover {
+  opacity: 0.5;
+}
+
+
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* CSS Grid depends much more on CSS than HTML, so there is less boilerplate
+	 than with skeleton. Only basic 1-4 column grids are included.
+	 Any additional needs should be made using custom CSS directives */
+
+
+   .grid-container {
+    position: relative;
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    grid-gap: 20px;
+    gap: 20px;
+    /* by default use min 200px wide columns auto-fit into width */
+    grid-template-columns: minmax(200px, 1fr);
+  }
+  
+  /* grids to 3 columns above mobile sizes */
+  @media (min-width: 600px) {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 10px 0;
+    }
+    
+    /* basic grids */
+    .grid-container.fifths {
+      grid-template-columns: repeat(5, 1fr);
+      border:2px solid black;
+    }
+    .grid-container.quarters {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .grid-container.thirds {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-container.halves {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-container.full {
+      grid-template-columns: 1fr;
+    }
+    
+  }
+
+
+
+/* Index layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.new_album {
+  border:2px solid lime;
+  width:90vw;
+  margin:50px auto;
+}
+
+
+.index_album {
+  width: 42vw;
+  height:90vh;
+  object-fit: cover;
+}
+
+.right_side {
+  width:42vw;
+  /* border:2px solid limegreen; */
+  float:right;
+  text-align:center;
+}
+
+.index_logo {
+  width:150px;
+  margin-top:70px;
+}
+
+.error_gif {
+  width:50px;
+  margin-top:20px;
+  display:block;
+}
+
+
+/* Index.html styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.main {
+  display:flex;
+  justify-content: center;
+  height:100vh;
+}
+
+.main img {
+  border:0px solid hotpink;
+  width:100%;
+  margin:auto;
+  display:block;
+}
+
+.enter_button {
+  border:0px solid lime;
+  width:6%;
+  margin:0 auto;
+  margin-top:-15vh;
+}
+
+
+/******************************************
+/* MAIN.HTML STYLES
+/*******************************************/
+
+.hero {
+  display:flex;
+}
+
+.hero img {
+  width:100%;
+  display:block;
+}
+
+.section_label {
+  display:inline-block;
+  font-family: 'Cormorant Garamond', serif;  
+  font-weight: 400;
+  color:white;
+  text-align:center;
+  font-size: 1.4rem;
+  width:100%;
+  margin-bottom:40px;
+  letter-spacing: .1cm;
+}
+
+.social_icons {
+  display:none;
+  width:100%;
+  text-align:center;
+  margin-top:30px;
+}
+
+.social_icons li {
+  display: inline-block;
+}
+
+.social_icons img {
+  width: 40px;
+  margin:0 20px;
+}
+
+.social_icons img:hover {
+  opacity: 0.5;
+}
+
+/******************************************
+/* NEWS STYLES
+/*******************************************/
+
+.news {
+  text-align:center;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+  height:100%;
+}
+
+.news_blurb {
+  /* width:calc(100% / 3.1); */
+  display:inline-block;
+}
+
+.news_head {
+  display:block;
+  text-align:left;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  color:#1496bc;
+  font-size:1rem;
+  margin-bottom:6px;
+}
+
+.news_date {
+  display:block;
+  text-align:left;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  color:lightslategrey;
+  font-size:.8rem;
+  margin-bottom:10px;
+}
+
+.news_body {
+  display:block;
+  text-align:left;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  color:white;
+  font-size:.9rem;
+  margin-bottom:10px;
+}
+
+.more_news {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color:#1496bc;
+  font-size:16px;
+  margin-top:20px;
+}
+
+.more_news a {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color: white;
+  font-size:16px;
+  margin-top:20px;
+  width:180px;
+  padding-top:5px;
+  border-top:1px solid #1496bc;
+  margin:0 auto;
+}
+
+.more_news a:hover {
+  color: #1496bc;
+}
+
+
+/******************************************
+/* MUSIC STYLES
+/*******************************************/
+
+.music {
+  text-align:center;
+  width:75%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+.album {
+  display:inline-block;
+  width:100%;
+}
+
+.album_cover {
+  display:inline-block;
+  width:100%;
+}
+
+.spotify_album {
+  display:inline-block;
+  width:100%;
+  max-width:600px;
+}
+
+.album_title {
+  color:white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  clear: both;
+  display:block;
+  text-align:center;
+  padding-top:10px;
+  padding-bottom:10px;
+  font-size:1rem;
+}
+
+.buy_now, .stream {
+  font-size: .6rem;
+  margin-top:10px;
+  background-color:#1496bc;
+  color:white;
+  border:0px;
+  padding:4px 20px;
+  line-height: 1.5;
+}
+
+.buy_now:hover, .stream:hover {
+  font-size: .6rem;
+  margin-top:10px;
+  background-color:#086e8d;
+  color:white;
+  border:0px;
+  padding:4px 20px;
+  line-height: 1.5;
+}
+
+#error {
+  margin-bottom:25px;
+}
+
+#queen {
+  margin-bottom:25px;
+}
+
+#xxi {
+  margin-top:10px;
+}
+
+#escape {
+  margin-top:10px;
+}
+
+.more_music {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color:#1496bc;
+  font-size:16px;
+  margin-top:20px;
+}
+
+.more_music a {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color: white;
+  font-size:16px;
+  margin-top:20px;
+  width:180px;
+  padding-top:5px;
+  border-top:1px solid #1496bc;
+  margin:0 auto;
+}
+
+.more_music a:hover {
+  color: #1496bc;
+}
+
+
+/******************************************
+/* TOUR STYLES
+/*******************************************/
+
+.tour {
+  border:0px solid limegreen;
+  text-align:center;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+
+/******************************************
+/* NEWSLETTER STYLES
+/*******************************************/
+
+.newsletter {
+  text-align:center;
+  height:325px;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+  background-color:black;
+}
+
+.newsletter img {
+  text-align:center;
+  width:44%;
+  float:left;
+  display:inline-block;
+}
+
+.newsletter_blurb {
+  color:white;
+  display:inline-block;
+  width:50%;
+  margin-bottom:20px;
+  margin-top:40px;
+  padding-bottom:30px;
+  font-size:1rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.form {
+  display:inline-block;
+	margin-bottom: 25px;
+}
+
+.form__email {
+	padding: 10px 15px;
+	border-radius: 5px;
+ 	border: 1px solid #CAD3DB;
+	width: 331px;
+	font-size: 18px;
+	color: #0F121F;
+}
+
+.form__email:focus {
+	outline: 1px solid #1496bc;
+}
+
+.form__button {
+	background: #1496bc;
+	padding: 10px;
+	border: none;
+	width: 120px;
+	height: 45px;
+	border-radius: 5px;
+	font-size: 18px;
+	color: white;
+}
+
+.form__button:hover {
+}
+
+.notice {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight:400px;
+	font-size: 14px;
+  width:98%;
+}
+
+.notice_copy {
+  color:white;
+}
+
+
+/******************************************
+/* VIDEOS STYLES
+/*******************************************/
+
+.videos {
+  text-align:center;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+.big_video {
+
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; 
+  height: 0;
+}
+.iframe-container iframe{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video_container {
+  display:flex;
+  justify-content: space-around;
+}
+
+.little_video {
+  margin-top:20px;
+  width:calc(100% / 3);
+  height:100%;
+  margin-right:15px;
+}
+
+.little_video:nth-child(3n){
+  margin-right:0px;
+}
+
+.responsive-youtube {
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.responsive-youtube iframe {
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+.more_videos {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color:#1496bc;
+  font-size:.8rem;
+  margin-top:20px;
+}
+
+.more_videos a {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  color: white;
+  font-size:16px;
+  margin-top:20px;
+  width:180px;
+  padding-top:5px;
+  border-top:1px solid #1496bc;
+  margin:0 auto;
+}
+
+.more_videos a:hover {
+  color: #1496bc;
+}
+
+
+/******************************************
+/* MERCH STYLES
+/*******************************************/
+
+.merch {
+  text-align:center;
+  width:80%;
+  height:100%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+.merch_item {
+  display:inline-block;
+  float:left;
+  text-align:center;
+}
+
+.merch_head {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  color:#1496bc;
+  font-size:1rem;
+  margin-bottom:6px;
+}
+
+.merch_price {
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  color:white;
+  font-size:1.3rem;
+  margin-bottom:10px;
+}
+
+.more_merch {
+  display:block;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  color:white;
+  font-size:16px;
+  margin-top:20px;
+}
+
+.more_merch a {
+  color:white;
+  font-weight: 900;
+  font-size:16px;
+  width:270px;
+  padding-top:5px;
+  border-top:1px solid #1496bc;
+  margin:0 auto;
+}
+
+.more_merch a:hover {
+  color: #1496bc;
+}
+
+
+
+/******************************************
+/* ABOUT STYLES
+/*******************************************/
+
+.about  {
+  text-align:center;
+  width:70%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+.about p {
+  margin: 0 auto;
+  width:80%;
+  color:white;
+  text-align:center;
+  font-size:1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  line-height:1.5rem;
+}
+
+.review {
+  display:block;
+  margin: 30px auto;
+  width:90%;
+  color: rgb(79, 79, 79);
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 800;
+  font-size:1.6rem;
+  line-height:1.9rem;
+}
+
+/******************************************
+/* INSTAGRAM STYLES
+/*******************************************/
+
+.instagram  {
+  text-align:center;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+
+/******************************************
+/* CONTACT STYLES
+/*******************************************/
+
+.contact  {
+  text-align:center;
+  width:80%;
+  margin: 0px auto;
+  margin-top:50px;
+}
+
+.management {
+  width: 100%;
+  border:0px solid white;
+  text-align:center;
+  margin:0 auto;
+}
+
+.manage {
+  display:block;
+  color:white;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 900;
+  font-size:1.2rem;
+  margin-bottom:10px;
+}
+
+.manage_country {
+  display:block;
+  color:white;
+  text-align:center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size:1rem;
+  margin-bottom:10px;
+}
+
+.manager_agency {
+  display:block;
+  color:#1496bc;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size:1rem;
+  margin-bottom:6px;
+}
+
+.manager_names {
+  display:block;
+  color:#1496bc;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size:.9rem;
+  margin-bottom:6px;
+}
+
+.manage_email {
+  display:block;
+  color:white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size:.7rem;
+  margin-bottom:40px;
+}
+
+.agency_container {
+  display:flex;
+  justify-content: space-between;
+}
+
+.agency_trio {
+  display:inline-block;
+}
+
+
+/* Sponsors styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.sponsors {
+  width:60%;
+  margin:0 auto;
+}
+
+
+/* Footer styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.footer-basic {
+  padding:5px 0;
+}
+
+.footer-basic img {
+  width:100%;
+  margin-bottom:10px;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size: .7rem;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile (default point when grid becomes active) */
+@media (min-width: 600px) {}
+
+/* Larger than phablet */
+@media (min-width: 900px) {}
+
+/* Larger than tablet */
+@media (min-width: 1200px) {}
+
+
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px) {
+
+  .main {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    overflow:hidden;
+  }
+
+  .main img {
+    min-height: 80%;
+    flex-shrink:0;
+    object-fit:cover;
+  }
+
+  .enter_button {
+    width:15%;
+    margin:0 auto;
+    margin-top:-15vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+  }
+  
+  .logo {
+    cursor: pointer;
+    width:200px;
+  }
+  
+  .nav_links {
+    list-style:none;
+  }
+  
+  .nav_links li:nth-child(-n+2) {
+    display: none;
+    padding: 0px 20px;
+  }
+  
+  .nav_links li a {
+    transition: all 0.3s ease 0s;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size:2rem;
+  }
+
+  .nav_social {
+    list-style:none;
+    display:none;
+  }
+
+  .social_icons {
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    margin-top:30px;
+  }
+
+  .section_label {
+    display:inline-block;
+    font-family: 'Cormorant Garamond', serif;  
+    font-weight: 400;
+    color:white;
+    text-align:center;
+    font-size: 2.5rem;
+    width:100%;
+    margin-top:40px;
+    margin-bottom:20px;
+    letter-spacing: .1cm;
+  }
+
+  .grid-container.thirds {
+    grid-template-columns: 1fr;
+  }
+  .grid-container.halves {
+    grid-template-columns: 1fr;
+  }
+
+  .music {
+    text-align:center;
+    width:80%;
+    margin: 0px auto;
+    margin-top:50px;
+  }
+
+  .album:nth-child(n+4) {
+    display:none;
+  }
+
+  .album_cover img{
+    width:100%;
+  }
+
+  .spotify_album {
+    display:inline-block;
+    width:100%;
+    max-width:1200px;
+  }
+
+  .buy_now, .stream {
+    font-size: 1rem;
+    margin-top:10px;
+    background-color:#1496bc;
+    color:white;
+    border:0px;
+    padding:4px 20px;
+    line-height: 1.5;
+  }
+  
+  .buy_now:hover, .stream:hover {
+    font-size: 1rem;
+    margin-top:10px;
+    background-color:#086e8d;
+    color:white;
+    border:0px;
+    padding:4px 20px;
+    line-height: 1.5;
+  }
+
+  .buy_now a, .stream a{
+    font-size: 1.5rem;
+    margin-top:10px;
+    background-color:#1496bc;
+    color:white;
+    border:0px;
+    padding:4px 20px;
+    line-height: 1.5;
+  }
+
+  .news {
+    text-align:center;
+    width:80%;
+    margin: 0px auto;
+    margin-top:50px;
+    height:100%;
+  }
+  
+  .news_blurb:nth-child(n+2) {
+    /* width:calc(100% / 3.1); */
+    display:none;
+  }
+  
+  .news_head {
+    display:block;
+    text-align:left;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color:#1496bc;
+    font-size:2rem;
+    margin-bottom:6px;
+  }
+  
+  .news_date {
+    display:block;
+    text-align:left;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color:lightslategrey;
+    font-size:1.8rem;
+    margin-bottom:10px;
+  }
+  
+  .news_body {
+    display:block;
+    text-align:left;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color:white;
+    font-size:1.9rem;
+    margin-bottom:10px;
+  }
+  
+  .more_news {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color:#1496bc;
+    font-size:1.8rem;
+    margin-top:20px;
+  }
+  
+  .more_news a {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size:1.8rem;
+    margin-top:20px;
+    width:420px;
+    padding-top:5px;
+    border-top:1px solid #1496bc;
+    margin:0 auto;
+  }
+
+  .more_music {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color:#1496bc;
+    font-size:1.8rem;
+    margin-top:20px;
+  }
+  
+  .more_music a {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size:1.8rem;
+    margin-top:20px;
+    width:420px;
+    padding-top:5px;
+    border-top:1px solid #1496bc;
+    margin:0 auto;
+  }
+
+  .newsletter {
+    text-align:center;
+    height:auto;
+    width:80%;
+    margin: 0px auto;
+    margin-top:50px;
+    background-color:black;
+  }
+
+  .newsletter img {
+    text-align:center;
+    width:64%;
+    float:left;
+    display:inline-block;
+  }
+  
+  .newsletter_blurb {
+    color:white;
+    display:inline-block;
+    width:33%;
+    margin-bottom:20px;
+    margin-top:40px;
+    padding-bottom:30px;
+    font-size:1.5rem;
+    line-height:2rem;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+
+  .form {
+    display:inline-block;
+    margin-bottom: 25px;
+  }
+  
+  .form__email {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #CAD3DB;
+    width: 431px;
+    font-size: 2rem;
+    color: #0F121F;
+  }
+  
+  .form__email:focus {
+    outline: 1px solid #1496bc;
+  }
+  
+  .form__button {
+    background: #1496bc;
+    padding: 10px 20px 60px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .notice {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight:400px;
+    font-size: 1.2rem;
+    width:80%;
+    margin:0 auto;
+  }
+
+  .more_videos {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color:#1496bc;
+    font-size:1.8rem;
+    margin-top:20px;
+  }
+  
+  .more_videos a {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size:1.8rem;
+    margin-top:20px;
+    width:380px;
+    padding-top:5px;
+    border-top:1px solid #1496bc;
+    margin:0 auto;
+  }
+
+  .merch {
+    text-align:center;
+    width:80%;
+    height:100%;
+    margin: 0px auto;
+    margin-top:50px;
+  }
+  
+  .merch_item {
+    display:inline-block;
+    float:left;
+    text-align:center;
+  }
+
+  .merch_item:nth-child(n+3) {
+    display:none;
+    float:left;
+    text-align:center;
+  }
+
+  .merch_item img {
+    width:100%;
+  }
+  
+  .merch_head {
+    display:inline-block;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    color:#1496bc;
+    font-size:1.6rem;
+    margin-bottom:6px;
+  }
+  
+  .merch_price {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color:white;
+    font-size:1.6rem;
+    margin-left:60px;
+    margin-bottom:10px;
+  }
+
+  .more_merch {
+    display:block;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    color:white;
+    font-size:1.8rem;
+    margin-top:20px;
+  }
+  
+  .more_merch a {
+    color:white;
+    font-weight: 900;
+    font-size:1.8rem;
+    width:270px;
+    padding-top:5px;
+    border-top:1px solid #1496bc;
+    margin:0 auto;
+  }
+
+  .about  {
+    text-align:center;
+    width:80%;
+    margin: 0px auto;
+    margin-top:50px;
+  }
+  
+  .about p {
+    margin: 0 auto;
+    width:90%;
+    color:white;
+    text-align:center;
+    font-size:1.9rem;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    line-height:2.5rem;
+  }
+  
+  .review {
+    display:block;
+    margin: 30px auto;
+    width:100%;
+    color: rgb(79, 79, 79);
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 800;
+    font-size:2.5rem;
+    line-height:2.9rem;
+  }
+  
+  .management {
+    width: 100%;
+    border:0px solid white;
+    text-align:center;
+    margin:0 auto;
+  }
+  
+  .manage {
+    display:block;
+    color:white;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 900;
+    font-size:2rem;
+    margin-bottom:10px;
+  }
+  
+  .manage_country {
+    display:block;
+    color:white;
+    text-align:center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size:1.7rem;
+    margin-bottom:10px;
+  }
+  
+  .manager_agency {
+    display:block;
+    color:#1496bc;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size:1.7rem;
+    margin-bottom:6px;
+  }
+  
+  .manager_names {
+    display:block;
+    color:#1496bc;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size:1.7rem;
+    margin-bottom:6px;
+  }
+  
+  .manage_email {
+    display:block;
+    color:white;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size:1.5rem;
+    margin-bottom:40px;
+  }
+
+  .sponsors {
+    width:90%;
+    margin:0 auto;
+  }
+
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size: 1.7rem;
+    color:#aaa;
+    margin-bottom:0;
+  }
+
+}
+
+
+/* iPads (portrait) ----------- */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) {
+
+  .main {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    overflow:hidden;
+  }
+
+  .main img {
+    min-height: 90%;
+    flex-shrink:0;
+    object-fit:cover;
+  }
+
+  .enter_button {
+    width:10%;
+    margin:0 auto;
+    margin-top:-15vh;
+  }
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+  and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+  and (min-width: 1824px) {
+  /* Styles */
+}
+
+/* High pixel ratio devices ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5) {
+  /* Styles */
+}
